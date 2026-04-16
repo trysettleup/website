@@ -1,26 +1,104 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-deep: #ffffff;
+  --bg-base: #ffffff;
+  --bg-elevated: #fafafa;
+  --bg-surface: #e4e4e7;
+  --text-primary: #18181b;
+  --text-secondary: #52525b;
+  --text-muted: #a1a1aa;
+  --accent-primary: #0ea5e9;
+  --accent-secondary: #10b981;
+  --accent-glow: rgba(14, 165, 233, 0.1);
+  --accent-text: #0284c7;
+  --emerald-glow: rgba(16, 185, 129, 0.12);
+
+  --code-green: #059669;
+  --code-blue: #0284c7;
+  --code-pink: #db2777;
+  --code-orange: #ea580c;
+  --code-purple: #7c3aed;
+
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", "Fira Code",
+    "Cascadia Code", Menlo, Monaco, Consolas, monospace;
+}
+
+.dark {
+  --bg-deep: #0b1120;
+  --bg-base: #0f172a;
+  --bg-elevated: #1e293b;
+  --bg-surface: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent-primary: #0ea5e9;
+  --accent-secondary: #10b981;
+  --accent-glow: rgba(14, 165, 233, 0.12);
+  --accent-text: #38bdf8;
+  --emerald-glow: rgba(16, 185, 129, 0.18);
+
+  --code-green: #34d399;
+  --code-blue: #38bdf8;
+  --code-pink: #f472b6;
+  --code-orange: #fb923c;
+  --code-purple: #c084fc;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg-deep: var(--bg-deep);
+  --color-bg-base: var(--bg-base);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-bg-surface: var(--bg-surface);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-accent: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-text: var(--accent-text);
+  --color-code-green: var(--code-green);
+  --color-code-blue: var(--code-blue);
+  --color-code-pink: var(--code-pink);
+  --color-code-orange: var(--code-orange);
+  --color-code-purple: var(--code-purple);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-deep);
+  color: var(--text-secondary);
+}
+
+html {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: var(--accent-secondary);
+  color: #fff;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--bg-surface) 60%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--bg-surface) 60%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+}
+
+.hero-glow {
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, var(--emerald-glow), transparent 70%),
+    radial-gradient(ellipse 40% 50% at 20% 20%, var(--accent-glow), transparent 70%);
 }
