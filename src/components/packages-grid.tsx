@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, BarChart3, BookOpen, Workflow } from "lucide-react";
+import { ArrowUpRight, BarChart3, BookOpen, FlaskConical } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
@@ -37,20 +37,20 @@ const packages: Pkg[] = [
     ],
   },
   {
-    name: "Workflowable",
-    tagline: "Event-driven workflow engine",
+    name: "Pest Plugin Visualizations",
+    tagline: "Expressive testing for DataGrids & Charts",
     description:
-      "A flexible, event-driven workflow engine for Laravel. Build complex business processes with conditional branching, retry policies, and a complete audit trail powered by event sourcing.",
-    install: "composer require workflowable/workflowable",
-    icon: <Workflow className="h-5 w-5" />,
-    href: "https://github.com/workflowable/workflowable",
-    docsHref: "https://workflowable.io",
+      "A Pest testing plugin for the Visualizations library. Write expressive, chainable assertions for DataGrids, Charts, and Metrics — covering schema validation, filtering, sorting, and data correctness.",
+    install: "composer require settleup/pest-plugin-visualizations --dev",
+    icon: <FlaskConical className="h-5 w-5" />,
+    href: "https://github.com/trysettleup/pest-plugin-visualizations",
+    docsHref: "https://visualizations.trysettleup.com/testing/pest-plugin.html",
     accent: "cyan",
     features: [
-      "JSON-defined workflows",
-      "Retry policies + async queues",
-      "CRON + event triggers",
-      "Full audit trail via event sourcing",
+      "Schema & data assertions",
+      "Chart & Metric testing",
+      "Chainable fluent API",
+      "Filter & sort validation",
     ],
   },
 ];
@@ -131,9 +131,9 @@ function PackageCard({ pkg, index }: { pkg: Pkg; index: number }) {
 
         <ul className="mt-6 grid gap-2 text-sm text-[var(--text-secondary)] sm:grid-cols-2">
           {pkg.features.map((f) => (
-            <li key={f} className="flex items-start gap-2">
+            <li key={f} className="flex items-center gap-2">
               <span
-                className={cn("mt-1 inline-block h-1.5 w-1.5 shrink-0 rounded-full", bulletColor)}
+                className={cn("inline-block h-1.5 w-1.5 shrink-0 rounded-full", bulletColor)}
               />
               {f}
             </li>

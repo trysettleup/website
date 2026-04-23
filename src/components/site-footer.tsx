@@ -25,12 +25,12 @@ export function SiteFooter() {
             Visualizations
           </a>
           <a
-            href="https://github.com/workflowable/workflowable"
+            href="https://github.com/trysettleup/pest-plugin-visualizations"
             target="_blank"
             rel="noreferrer"
             className="hover:text-[var(--text-primary)]"
           >
-            Workflowable
+            Pest Plugin
           </a>
           <a
             href="https://github.com/trysettleup"
